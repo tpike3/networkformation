@@ -29,3 +29,7 @@ class NetworkModel(Model):
             
         self.running = True
         #self.datacollector.collect(self)
+        
+        
+    def step(self):
+        self.schedule.step()

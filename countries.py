@@ -8,7 +8,7 @@ from mesa import Model
 from mesa.time import RandomActivation
 from mesa.space import MultiGrid
 import humanagent as ha
-import resource 
+import resource as r 
 import random 
 import math
 import itertools
@@ -35,12 +35,12 @@ class Countries(Model):
             self.grid.place_agent(a, (x, y))
             
         #add agricultural agents to grid
-        size_r = int(width/5)
+        size_r = int(width/2)
         self.pos_res = self.make_resources(height, width, size_r)
               
         
         for i in range(size_r):
-            a = resource.Resource(i, self, random.randint(2,11))
+            a = r.Resource(i, self, 5)
             self.resources.append([a,self.pos_res[i]])
             self.grid.place_agent(a,self.pos_res[i])
         
@@ -56,8 +56,12 @@ class Countries(Model):
             pos.append(p)
             
         return pos
-            
-        #for x in len(coords):
+    
+    
+    
+    def step(self):
+         self.countrysched.step()
+        
             
             
             
