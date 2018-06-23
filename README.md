@@ -1,3 +1,3 @@
-Attempt to create gractcla network strucutre of human society from first principles
+Attempt to create fractal network structure of human society from first principles
 
 # networkformation
