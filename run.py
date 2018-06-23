@@ -24,7 +24,8 @@ import networkmodel as NM
 test = NM.NetworkModel(10, 2, 10, 10)
 
 #run instance of network model for N steps
-for i in range(10):
+for i in range(3):
+    print ("STEP ", i, "\n\n")
     test.step()
 
 #prints attribute of agent has to drill through all instances -

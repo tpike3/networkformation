@@ -61,14 +61,15 @@ class HumanAgent(Agent):
                         print ("found food")
                         resource = True
                         break
-                ##############################################
-                # NO FOOD MOVE RANDOMLY
-                ################################################
-                if resource == True: 
-                    pass
-                else: 
-                    new_position = random.choice(possible_steps)
-                    self.model.grid.move_agent(self, new_position)
+        ##############################################
+        # NO FOOD MOVE RANDOMLY
+        ################################################
+        if resource == True: 
+            pass
+        else: 
+            new_position = random.choice(possible_steps)
+            self.model.grid.move_agent(self, new_position)
+            print ("still looking")
                                             
     # step function agent ---only thing it odes is move                 
     def step(self):
