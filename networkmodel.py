@@ -33,7 +33,7 @@ class NetworkModel(Model):
         
         for i in range(C):
             #creates an instance of the country
-            a = countries.Countries(N, width, height, i)
+            a = countries.Countries(N, self, width, height, i)
             #adds instance to schedule
             self.schedule.add(a)
             

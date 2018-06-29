@@ -32,3 +32,4 @@ for i in range(3):
 #to get the wealkth of one agent in one countries population in one country
 # in the instance of the networkmodel 
 print (test.schedule.agents[0].countrysched.agents[0].wealth)
+

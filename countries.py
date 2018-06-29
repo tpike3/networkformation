@@ -22,12 +22,15 @@ country has a
 3. An amount of resources
 '''
 
+from mesa import Agent
 
-class Countries(Model):
+
+class Countries(Agent):
     
     
-    def __init__(self, N, width, height, i):
+    def __init__(self, N, model, width, height, unique_id):
         
+        super().__init__(unique_id, model)
         self.grid = MultiGrid(height, width, False)
         self.num_agents = N
         self.countrysched = RandomActivation(self)
@@ -56,6 +59,36 @@ class Countries(Model):
         #
         ###################################################
         
+        if i % 2 == 0: 
+            self.make_herds(height, width)
+        
+        else: 
+            self.make_farms(height, width) 
+        
+        
+        
+    #Function to make locations of resources   
+    def make_resources(self, height, width, size_r):
+        pos = []   
+        coords = list(itertools.combinations([x for x in range((size_r*-1), size_r+1)],2))
+        midpoint = [int(width//2), int(height//2)]
+        for i in range(len(coords)):
+            p = (midpoint[0]+coords[i][0], midpoint[1]+coords[i][1])    
+            pos.append(p)
+            
+        return pos
+    
+    def make_herds(self, height, width):
+                
+        size_r = int(width/2)
+        
+        for i in range(size_r): 
+            a = r.Hunt(i, self, 5)
+            
+        
+    
+    
+    def make_farms(self, height, width): 
         #identify middle of grid
         size_r = int(width/2)
         #create an array of resources
@@ -69,18 +102,7 @@ class Countries(Model):
             self.resources.append([a,self.pos_res[i]])
             #place resource on grid
             self.grid.place_agent(a,self.pos_res[i])
-        
-        
-    #Function to make locations of resources   
-    def make_resources(self, height, width, size_r):
-        pos = []   
-        coords = list(itertools.combinations([x for x in range((size_r*-1), size_r+1)],2))
-        midpoint = [int(width//2), int(height//2)]
-        for i in range(len(coords)):
-            p = (midpoint[0]+coords[i][0], midpoint[1]+coords[i][1])    
-            pos.append(p)
-            
-        return pos
+    
     
     
     # function which activates step function in Agent instance
