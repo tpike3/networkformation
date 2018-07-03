@@ -1,21 +1,17 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Jun 22 14:55:18 2018
+Created on Mon Jul  2 13:33:42 2018
 
 @author: ymamo
 """
 
 from mesa import Agent
+import random
 
-'''
-Creates and instance of the resources class
-currently the resources do not do anything
-just hold onto energy
-'''
-
-
-class Resource(Agent):
+class Resource(Agent): 
     
-    def __init__(self, unique_id, model, energy):
-        super().__init__(unique_id, model)
-        self.energy = energy
+    def __init__(self, unique_id, model, value, owned): 
+          super().__init__(unique_id, model)
+          self.value = random.randint(0,5)
+          self.owned = owned
+          
