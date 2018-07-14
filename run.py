@@ -61,4 +61,4 @@ EXECUTION FUNCTION TO RUN THE MODEL
 '''      
         
         
-run_model("single")
+run_model("multi")
